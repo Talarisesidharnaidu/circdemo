@@ -1,6 +1,6 @@
 
 from pprint import pprint
-from urllib3 
+
 import json
 import urllib3
 import requests
