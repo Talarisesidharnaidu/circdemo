@@ -2,13 +2,13 @@
 from pprint import pprint
 
 import json
-import urllib3
+#import urllib3
 import requests
 
 
 
 
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+#urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 host = 'https://webexapis.com/'
 teams_path = "https://webexapis.com/v1/teams"
