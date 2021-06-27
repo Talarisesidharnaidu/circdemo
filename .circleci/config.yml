@@ -31,7 +31,7 @@ workflows:
       - test:
           requires:
             - build
-      - testMessage
+      - testMessages
 
 
 notify:
