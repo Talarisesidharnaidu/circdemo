@@ -15,7 +15,15 @@ jobs:
     steps:
       - checkout
       - run: python3 maintest.py
-
+  testmessage:
+    working_directory: ~/circleci-python
+    docker:
+      - image: "circleci/python:3.7.0"
+     steps:
+      - checkout
+      - run: python3 NotificationRoom.py
+      
+      
 workflows:
   build_and_test:
     jobs:
@@ -23,12 +31,20 @@ workflows:
       - test:
           requires:
             - build
+      - testmessage
 
-- alias: "Notify On Build Failing"
-  trigger:
-    - platform: webhook
-      webhook_id: build_failed
-  action:
-    service: notify.cisco_webex_teams_notify
-    data:
-      message: "<blockquote class=danger>Build 0.89.5 compile failed."
+
+notify:
+  - name: NotificationMessages
+    platform: cisco_webex_teams
+    token: Y2IxMWQ0ZmEtM2UzMy00YzhiLTlkYzMtODI2ZWM1ZDRjYjY0MmYyZWE4NWMtZDQ1_P0A1_f98b67b3-1ec1-437e-acce-3fd02f2f5d04
+    room_id: Y2lzY29zcGFyazovL3VybjpURUFNOnVzLXdlc3QtMl9yL1JPT00vODYyMDBkMTAtZDcxMy0xMWViLWJhNDctNDFkNDA2MDMyZWZh
+
+  - alias: "Notify On Build Failing"
+    trigger:
+      - platform: webhook
+        webhook_id: build_failed
+    action:
+      service: notify.cisco_webex_teams_notify
+      data:
+        message: "<blockquote class=danger>Build 0.89.5 compile failed."
