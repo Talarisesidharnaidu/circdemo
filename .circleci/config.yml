@@ -30,7 +30,9 @@ jobs:
       - image: "circleci/python:3.7.0"
     steps:
       - checkout
-      - run: python3 test.py
+      - run:
+          name: Setup Environment Variables
+          command: echo ${CIRCLE_BUILD_URL}
       
 workflows:
   build_and_test:
