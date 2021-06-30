@@ -33,8 +33,8 @@ jobs:
       - run:
           name: Setup Environment Variables
           command: echo ${CIRCLE_BUILD_URL}
-          
-      [![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://app.circleci.com/pipelines/github/Talarisesidharnaidu/circdemo)
+
+=for HTML <a href="https://circleci.com/gh/circleci/circleci-docs"><img src="https://circleci.com/gh/circleci/circleci-docs.svg?style=svg"></a>     
 
 workflows:
   build_and_test:
