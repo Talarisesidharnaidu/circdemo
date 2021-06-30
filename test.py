@@ -1,12 +1,9 @@
-import http.client
+import os
 
-conn = http.client.HTTPSConnection("circleci.com")
+access_token = os.getenv('CIRCLE_BUILD_URL')
 
-headers = { 'authorization': "Basic 3e9d9cad13f63c7ee27967b1894b08bd7738aecd" }
+print (access_token)
 
-conn.request("GET", "/api/v2/project/gh/Talarisesidharnaidu/circdemo/pipeline?branch=main&page-token=Basic 3e9d9cad13f63c7ee27967b1894b08bd7738aecd", headers=headers)
+access_token1 = os.getenv('TestSesi')
 
-res = conn.getresponse()
-data = res.read()
-
-print(data.decode("utf-8"))
+print (access_token1)
